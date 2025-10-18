@@ -1,0 +1,105 @@
+## 📦 universal-app
+
+A scalable monorepo targeting mobile (Expo) and desktop (Electron) platforms, powered by PNPM workspaces, Drizzle ORM, and shared schema logic. Built for audit-safe flows, ergonomic migrations, and maintainable architecture.
+
+---
+
+### 🧭 Project Structure
+
+```
+universal-app/
+├── apps/
+│   ├── expo-app/         # Mobile app (React Native + Expo)
+│   └── electron-app/     # Desktop app (Electron + better-sqlite3)
+├── packages/
+│   └── common-package/    # Shared logic, schema, and helpers
+├── pnpm-workspace.yaml   # Workspace config
+├── package.json          # Root scripts
+└── README.md             # You're here
+```
+
+---
+
+### 🚀 Getting Started
+
+#### 1. Install dependencies
+
+```bash
+pnpm install
+```
+
+#### 2. Start Expo (mobile)
+
+```bash
+pnpm run dev:expo
+```
+
+#### 3. Start Electron (desktop)
+
+```bash
+pnpm run dev:electron
+```
+
+> These scripts are defined in the root `package.json` and use workspace filters.
+
+---
+
+### 🧠 Shared Logic
+
+The `packages/common-package` module contains:
+
+- Shared schema definitions
+- Migration runners
+- Rollback helpers
+- Audit-safe adapters for Expo SQLite and better-sqlite3
+
+Use it across both apps via:
+
+```ts
+import { schema, migrate } from '@pnp/common-package';
+```
+
+---
+
+### 🧪 Migrations
+
+Drizzle ORM is used for schema management. Migration files live in:
+
+- `apps/expo-app/drizzle/migrations`
+- `apps/electron-app/drizzle/migrations`
+
+To run migrations:
+
+```bash
+pnpm run migrate:expo
+pnpm run migrate:electron
+```
+
+> These scripts should be scaffolded in each app’s `package.json`.
+
+---
+
+### 🧼 Workspace Hygiene
+
+- Uses `workspace:*` for local linking
+- Dual-mode compatible with `npm` and `pnpm`
+- `.gitignore` files scoped per app
+- Audit-safe startup tracing and crash logging recommended
+
+---
+
+### 📚 Resources
+
+- [Expo Monorepo Guide](https://docs.expo.dev/guides/monorepos/)
+- [Drizzle ORM Docs](https://chatgpt.com/c/68f24fb9-7960-8320-b1bb-b036485ee385)
+- [Electron + SQLite Setup](https://github.com/zohaibsiddique/universal-app/tree/master/expo-app)
+
+---
+
+### 🤝 Contributing
+
+1. Fork the repo
+2. Create a feature branch
+3. Run `pnpm lint` and `pnpm test`
+4. Submit a PR with clear audit notes
+
