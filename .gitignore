@@ -1,0 +1,38 @@
+# Node & PNPM
+node_modules/
+.pnpm/
+.pnpm-debug.log
+pnpm-lock.yaml
+
+# Expo
+.expo/
+.expo-shared/
+*.expo
+*.apk
+*.aab
+*.keystore
+
+# Electron
+dist/
+out/
+*.log
+*.tsbuildinfo
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build Artifacts
+build/
+coverage/
+.env
+.env.local
+.env.*.local
+
+# Drizzle ORM
+drizzle/migrations/*.sql
+drizzle/migrations/meta/*.json

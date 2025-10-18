@@ -1,0 +1,42 @@
+# Node & PNPM
+node_modules/
+.pnpm/
+.pnpm-debug.log
+pnpm-lock.yaml
+
+# Electron build & cache
+dist/
+out/
+build/
+*.tsbuildinfo
+*.log
+*.db
+*.sqlite
+*.bak
+
+# Native module rebuilds
+.rebuild/
+.cache/
+*.node
+
+# Crash logs & diagnostics
+*.dmp
+*.stacktrace
+*.trace
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor junk
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Drizzle ORM (optional)
+drizzle/migrations/*.sql
+drizzle/migrations/meta/*.json
